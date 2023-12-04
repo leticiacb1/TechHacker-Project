@@ -31,7 +31,31 @@ variable "aval_zone" {
   default     = "us-east-2a"
 }
 
-# ------------- Database --------------------
+# ------------- Database (Mysql) --------------------
+
+variable "DB_ROOT_PASS" {
+  type        = string
+  description = "Root database password"
+}
+
+variable "DB_NAME" {
+  type        = string
+  description = "Database name"
+}
+
+variable "DB_USER" {
+  type        = string
+  description = "Database user"
+}
+
+variable "DB_PASS" {
+  type        = string
+  description = "Database password"
+}
+
+variable name_keypair_db {
+    default = "key-pair-db"
+}
 
 
 # ------------- Jump Server --------------------
@@ -45,5 +69,9 @@ variable name_keypair_js {
     default = "key-pair-js"
 }
 
-
 # ------------- Zabbix --------------------
+
+variable "ZABBIX_PASS" {
+  type        = string
+  description = "Zabbix password"
+}

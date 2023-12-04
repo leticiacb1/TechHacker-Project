@@ -35,3 +35,27 @@ echo " Tomcat restarted successfully !"
 #
 # Usuário : guacadmin
 # Senha   : guacadmin
+
+
+# ------------ Conectar ao MySQL --------------
+mysql -h localhost -u guacamole_user -p${guacamole_password} <<EOF
+USE guacamole_db;
+
+INSERT INTO guacamole_connection (connection_id, connection_name, protocol)
+VALUES (1, 'BancoDeDados', 'ssh');
+
+INSERT INTO guacamole_connection_parameter (connection_id, parameter_name, parameter_value)
+VALUES
+  (1, 'username', 'ubuntu'),
+  (1, 'hostname', '${db_ip}'),
+  (1, 'private-key', '${db_private_key}');
+
+INSERT INTO guacamole_connection (connection_id, connection_name, protocol)
+VALUES (2, 'Zabbix', 'ssh');
+
+INSERT INTO guacamole_connection_parameter (connection_id, parameter_name, parameter_value)
+VALUES
+  (2, 'username', 'ubuntu'),
+  (2, 'hostname', '${zabbix_ip}'),
+  (2, 'private-key', '${zabbix_private_key}');
+EOF

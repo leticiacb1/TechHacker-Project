@@ -30,9 +30,9 @@ resource "aws_security_group" "guacamole" {
   }
 }
 
-# ------------- Web Server (WordPress) --------------------
+# ------------- Web Server --------------------
 
-resource "aws_security_group" "wordpress" {
+resource "aws_security_group" "web_server_security_group" {
   vpc_id = aws_vpc.main-vpc.id
 
   egress {
@@ -59,7 +59,7 @@ resource "aws_security_group" "wordpress" {
   }
 
   tags = {
-    Name = "WordPress-Security-Group"
+    Name = "WebServer-Security-Group"
   }
 
 }
