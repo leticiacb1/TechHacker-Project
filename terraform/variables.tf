@@ -1,3 +1,5 @@
+# ------------- AWS Credentials --------------------
+
 variable "AWS_REGION" {
   description = "Região utilizada pela AWS"
   type        = string
@@ -17,7 +19,31 @@ variable "AWS_SECRET_ACCESS_KEY" {
   sensitive   = true
 }
 
+variable "key_pair_path" {
+  description = "Path to your public key for ssh connections"
+  default     = "/home/leticiacb/Documents/TechHacker/ProjetoTechHacker/project_key.pub"
+}
+
+# ------------- Subnet --------------------
+
 variable "aval_zone" {
   description = "Avaliable Zone, VPC"
   default     = "us-east-2a"
 }
+
+# ------------- Database --------------------
+
+
+# ------------- Jump Server --------------------
+
+variable "GUACAMOLE_PASSWORD" {
+  type        = string
+  description = "Guacamole password"
+}
+
+variable name_keypair_js {
+    default = "key-pair-js"
+}
+
+
+# ------------- Zabbix --------------------
