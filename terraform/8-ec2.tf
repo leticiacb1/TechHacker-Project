@@ -126,5 +126,3 @@ resource "aws_instance" "db_server" {
     Name = "Database Server"
   }
 }
-
-# ------------- Application --------------------
