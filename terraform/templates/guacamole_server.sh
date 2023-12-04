@@ -17,11 +17,21 @@ wget -O guac-install.sh https://git.io/fxZq5
 chmod +x guac-install.sh
 sudo ./guac-install.sh --mysqlpwd ${guacamole_password} --guacpwd ${guacamole_password} --nomfa --installmysql
 
+echo "Guacamole Installation Completed !"
+
 # Baixar e instalar o plugin Guacamole Auth TOTP
 wget https://downloads.apache.org/guacamole/1.5.3/binary/guacamole-auth-totp-1.5.3.tar.gz
 tar -xzvf guacamole-auth-totp-1.5.3.tar.gz
 cd guacamole-auth-totp-1.5.3/
 sudo cp guacamole-auth-totp-1.5.3.jar /etc/guacamole/extensions
 
+echo "Auth TOTP Installation Completed !"
+
 # Reiniciar o serviço Tomcat9 
 sudo systemctl restart tomcat9
+echo " Tomcat restarted successfully !"
+
+# Para acessar Dashboard: http://<ip-publico>:8080/guacamole
+#
+# Usuário : guacadmin
+# Senha   : guacadmin
